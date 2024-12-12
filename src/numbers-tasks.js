@@ -478,8 +478,7 @@ function isInteger(number) {
  * 'abcdefgh'      => NaN
  */
 function getFloatOnString(str) {
-  const result = parseFloat(str);
-  return Number.isNaN(result) ? NaN : result;
+  return Number.parseFloat(str);
 }
 
 /**
@@ -497,8 +496,7 @@ function getFloatOnString(str) {
  * '10', 8              => 8
  */
 function getIntegerOnString(str, base) {
-  const result = parseInt(str, base);
-  return Number.isNaN(result) ? NaN : result;
+  return Number.parseInt(str, base);
 }
 
 /**
@@ -634,11 +632,7 @@ function getRandomInteger(min, max) {
  * 3, 4 => 5
  */
 function getHypotenuse(a, b) {
-  const sumOfSquares = Math.sqrt(a * a + b * b);
-  if (sumOfSquares > Number.MAX_VALUE) {
-    return 1.7976931348623157e308;
-  }
-  return sumOfSquares;
+  return Math.hypot(a, b);
 }
 
 /**
